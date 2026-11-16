@@ -1,10 +1,14 @@
-# ai-audio-separator
+# AI Audio Separator
 
-DemucsをGUIから実行して音源分離。
+楽曲ファイルからボーカル・ドラム・ベース・その他の音源を分離するデスクトップツールです。Demucsの処理を、コマンド操作が苦手な人でも使えるシンプルなGUIから実行できます。
 
-Tkinter frontend for Demucs source separation.
+## 主な機能
 
-## Setup / 起動
+- 音声ファイルと保存先を選ぶだけでDemucsによる4ステム分離を実行
+- 長時間の推論をバックグラウンドで処理し、画面の操作を維持
+- CLIからの自動処理にも対応
+
+## セットアップ
 ```bash
 python -m venv .venv
 # macOS/Linux: source .venv/bin/activate
@@ -14,7 +18,10 @@ python app.py --help
 python -m unittest -v
 ```
 
-## Usage / 使用例
-`python app.py` (GUI) or `python app.py input.wav --output output`. Model download, FFmpeg and compatible PyTorch/torchaudio may be required. Inference not verified.
+## 使い方
 
-Python 3.10+ recommended. AI-generated development assistance was used.
+`python app.py` でGUIを起動します。CLIでは `python app.py input.wav --output output` を実行します。
+
+初回はモデルのダウンロードが発生します。Demucsの実行にはFFmpegと、環境に合うPyTorch/torchaudioが必要です。処理結果は指定フォルダにDemucs標準の構成で保存されます。
+
+Python 3.10+ 推奨。実際の推論は環境ごとに確認してください。
